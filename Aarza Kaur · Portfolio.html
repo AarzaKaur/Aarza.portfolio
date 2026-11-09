@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aarza Kaur · Portfolio</title>
+<style>
+:root{--bg:#fbf7f2;--surface:#ffffff;--text:#1d1a22;--muted:#6b6573;--accent:#c2185b;--accent2:#5b3cc4;--line:#e9e2d9;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#15121a;--surface:#1e1a26;--text:#f3eef8;--muted:#a79fb3;--accent:#ff6fa5;--accent2:#9d86ff;--line:#2e283a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#15121a;--surface:#1e1a26;--text:#f3eef8;--muted:#a79fb3;--accent:#ff6fa5;--accent2:#9d86ff;--line:#2e283a;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;line-height:1.6}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+nav{display:flex;gap:18px;justify-content:flex-end;padding:20px 0;font-size:.9rem;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--accent)}
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;padding:40px 0 56px}
+.tag{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-size:clamp(2.4rem,7vw,4rem);line-height:1.05;margin:10px 0 16px}
+h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:1.1rem;max-width:36em}
+.btns{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+.btn{padding:11px 22px;border-radius:999px;text-decoration:none;font-weight:600;font-size:.95rem;border:1.5px solid var(--accent);color:var(--accent)}
+.btn.fill{background:var(--accent);color:#fff}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px}
+.player{text-align:center}
+.avatar{width:110px;height:110px;margin:0 auto 14px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#fff;font-size:2.6rem;font-weight:700}
+.player h3{margin:0}
+.player p{margin:2px 0 14px;color:var(--muted);font-size:.9rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;border-top:1px solid var(--line);padding-top:14px}
+.stats b{display:block;font-size:1.3rem;color:var(--accent)}
+.stats small{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
+section{padding:48px 0;border-top:1px solid var(--line)}
+h2{font-size:1.8rem;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card h3{margin:0 0 6px;font-size:1.08rem}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.ico{font-size:1.6rem;margin-bottom:8px}
+.tl{position:relative;padding-left:26px;border-left:2px solid var(--line);display:grid;gap:18px}
+.tl .card{position:relative}
+.tl .card::before{content:"";position:absolute;left:-35px;top:28px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.when{font-size:.8rem;color:var(--accent2);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.org{color:var(--muted);font-size:.9rem;margin:2px 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{padding:8px 16px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:.9rem}
+footer{padding:36px 0 48px;text-align:center;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+.hud{margin:12px 0 10px;font-weight:600;color:var(--text)}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.cell{aspect-ratio:1.5;border-radius:12px;border:1px solid var(--line);background:var(--bg);font-size:1.8rem;cursor:pointer}
+.msg{margin-top:12px!important;color:var(--accent)!important;font-weight:600}
+.track{position:relative;height:56px;border-radius:12px;background:var(--bg);border:1px solid var(--line);overflow:hidden}
+.zone{position:absolute;left:68%;width:18%;top:0;bottom:0;background:rgba(46,160,90,.3)}
+.ball{position:absolute;top:14px;left:0;width:28px;height:28px;border-radius:50%;background:var(--accent)}
+@media(max-width:700px){.hero{grid-template-columns:1fr}nav{justify-content:center}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a href="#about">About</a><a href="#report">Match Report</a><a href="#skills">Team Sheet</a><a href="#arcade">Arcade</a><a href="#playlist">Playlist</a><a href="#offfield">Off the Field</a><a href="#contact">Pass the Ball</a></nav>
+
+<header class="hero">
+<div>
+<span class="tag">Marketing × Technology</span>
+<h1>Hi, I’m <span>Aarza Kaur</span></h1>
+<p class="lead">A marketing specialist who blends technology with brand storytelling, building collaborations, publicity and influencer campaigns that get noticed.</p>
+<div class="btns"><a class="btn fill" href="#report">View my match report</a><a class="btn" href="#contact">Collaborate</a></div>
+</div>
+<aside class="card player">
+<div class="avatar">A</div>
+<h3>Aarza Kaur</h3>
+<p>Marketing Specialist · NMIMS · Athlete</p>
+<div class="stats">
+<div><b>8</b><small>Roles</small></div>
+<div><b>60</b><small>Team led</small></div>
+<div><b>500+</b><small>Sign-ups</small></div>
+</div>
+</aside>
+</header>
+
+<section id="about">
+<h2>About me</h2>
+<p class="lead">I’m 21 and studying an integrated B.Tech in Data Science and MBA in Technology at NMIMS. I work at the meeting point of tech and marketing, from brand collaborations and publicity to influencer campaigns, with a technical background that helps me think in data. Off the screen, I play cricket and lawn tennis, and I sing.</p>
+</section>
+
+<section id="report">
+<h2>Match report</h2>
+<p class="sub">My innings so far, most recent first.</p>
+<div class="tl">
+
+<div class="card"><span class="when">Mar – May 2026</span><h3>Project Intern</h3><div class="org">Franke Group</div><p>Worked on the portal’s user interface patterns to improve how new product launches are presented, accessed and positioned in the market.</p></div>
+
+<div class="card"><span class="when">Aug – Dec 2025</span><h3>Recruiting Intern</h3><div class="org">sc synergy GmbH · London-based consulting firm</div><p>Supported IT recruitment across the UK and Europe: sourcing, screening and shortlisting candidates, managing databases, coordinating interviews and matching profiles to client needs.</p></div>
+
+<div class="card"><span class="when">Oct 2024 – Present</span><h3>Marketing Ambassador</h3><div class="org">Monster Energy · Part-time · Mumbai</div><p>Lead large-scale sampling and on-ground activations across Mumbai, Goa, Pune and Lonavala, representing the brand at sporting events, concerts, IIT Bombay’s tech fest and university festivals.</p></div>
+
+<div class="card"><span class="when">Jul 2024 – Jun 2025</span><h3>Joint Secretary</h3><div class="org">Social Impact · NMIMS social cell</div><p>Led a team of sixty across blood donation drives, internship fairs and the national conference Social Conclave. Managed partnerships, sponsorships and budgets, and used influencer collaborations to boost reach.</p></div>
+
+<div class="card"><span class="when">Jul 2024 – Mar 2025</span><h3>Head of Public Relations</h3><div class="org">Social Conclave · UN-backed conference at NMIMS</div><p>Drove 500+ registrations, secured partnerships with leading brands and onboarded multiple Mumbai colleges.</p></div>
+
+<div class="card"><span class="when">Jul 2024 – Mar 2025</span><h3>Informals Head</h3><div class="org">Taqneeq Tech Fest · NMIMS</div><p>Led my department on the organizing committee of NMIMS’ flagship tech fest and drove outreach to colleges, partners and participants.</p></div>
+
+<div class="card"><span class="when">May – Jun 2024</span><h3>Technical Intern</h3><div class="org">Delhi Lokayukta</div><p>Designed and built data encryption solutions using Python, MySQL and PHP to protect data and reduce unauthorized access risks.</p></div>
+
+<div class="card"><span class="when">May – Jun 2022</span><h3>Technical Intern</h3><div class="org">Win Corporate Training · Remote</div><p>Built and refined a Python and MySQL web application, and completed an Excel project producing structured insights and reports.</p></div>
+
+</div>
+</section>
+
+<section id="skills">
+<h2>Team sheet</h2>
+<p class="sub">The skills I bring to the squad.</p>
+<div class="chips"><span class="chip">Performance Debugging</span><span class="chip">Product &amp; Catalog Management</span><span class="chip">Market Analysis</span><span class="chip">Recruitment Advertising</span><span class="chip">Talent Sourcing &amp; Screening</span><span class="chip">On-ground Campaign Management</span><span class="chip">Field Marketing</span><span class="chip">Event Management</span><span class="chip">Public Relations</span><span class="chip">Digital Marketing</span><span class="chip">Project Management</span><span class="chip">R</span><span class="chip">JavaScript</span><span class="chip">Object-Oriented Programming</span><span class="chip">Microsoft Power BI</span><span class="chip">Supermarket Analysis</span><span class="chip">SAS</span><span class="chip">Microsoft Office</span><span class="chip">Database Management (DBMS)</span><span class="chip">Construction Management System</span><span class="chip">Python</span></div>
+</section>
+
+<section id="arcade">
+<h2>Match day arcade</h2>
+<p class="sub">Two quick games. Take a break from the scorecard.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+
+<div class="card">
+<h3>Game 1: Go viral</h3>
+<p>Launch day! Tap 📣 posts (+1) and 🔥 viral hits (+3) before they fade. Never tap a 💥 troll storm. If 5 good posts escape, the campaign flops. Survive 30 seconds.</p>
+<p class="hud" id="g1hud">Reach: 0 · Missed: 0/5 · Time: 30</p>
+<div class="board" id="g1board"></div>
+<button class="btn fill" id="g1btn">Start the campaign</button>
+<p class="msg" id="g1msg"></p>
+</div>
+
+<div class="card">
+<h3>Game 2: Cricket timing</h3>
+<p>The ball is coming down the pitch. Press HIT when it is inside the green zone. Every run makes the ball faster. You have 3 lives.</p>
+<p class="hud" id="g2hud">Runs: 0 · Lives: ❤️❤️❤️</p>
+<div class="track"><div class="zone"></div><div class="ball" id="ball"></div></div>
+<div class="btns" style="margin-top:14px"><button class="btn fill" id="g2hit">HIT</button><button class="btn" id="g2start">Start</button></div>
+<p class="msg" id="g2msg">Press Start, then HIT (or Space on a laptop).</p>
+</div>
+
+</div>
+</section>
+
+<section id="playlist">
+<h2>Warm-up playlist</h2>
+<p class="sub">What I listen to before game time.</p>
+<div class="grid">
+<div class="card"><div class="ico">🎧</div><h3>Boyfriend</h3><p>Karan Aujla</p></div>
+<div class="card"><div class="ico">🎧</div><h3>Tera Deedar Hua</h3><p>On repeat</p></div>
+<div class="card"><div class="ico">🎧</div><h3>Heart Attack</h3><p>Demi Lovato</p></div>
+</div>
+</section>
+
+<section id="offfield">
+<h2>Off the field</h2>
+<div class="chips"><span class="chip">🏏 Cricket</span><span class="chip">🎾 Lawn tennis</span><span class="chip">🎤 Singing</span></div>
+</section>
+
+<section id="contact">
+<h2>Pass the ball</h2>
+<p class="lead">Want to talk about a project, an internship or a good song? Message me.</p>
+<div class="btns"><a class="btn fill" href="mailto:aarzakaur1808@gmail.com">aarzakaur1808@gmail.com</a><a class="btn" href="https://www.linkedin.com/in/aarza-kaur-4b778b378/details/skills/" target="_blank" rel="noopener">LinkedIn</a></div>
+</section>
+
+<footer>© 2026 Aarza Kaur</footer>
+</div>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+/* Game 1 */
+var b=$("g1board"),cells=[],g1={on:false,s:0,m:0,t:30,iv:null,tm:null};
+for(var i=0;i<9;i++){var c=document.createElement("button");c.className="cell";c.setAttribute("aria-label","cell");b.appendChild(c);cells.push(c)}
+function hud1(){$("g1hud").textContent="Reach: "+g1.s+" \u00b7 Missed: "+g1.m+"/5 \u00b7 Time: "+g1.t}
+function end1(w){g1.on=false;clearInterval(g1.iv);clearInterval(g1.tm);cells.forEach(function(c){c.textContent="";c.dataset.t=""});$("g1btn").textContent="Play again";$("g1msg").textContent=(w?"Campaign complete! ":"The campaign flopped. ")+"Final reach: "+g1.s+(g1.s>=40?" \u2014 trending nationwide!":"")}
+cells.forEach(function(c){c.onclick=function(){if(!g1.on||!c.dataset.t)return;var t=c.dataset.t;if(t==="p")g1.s+=1;else if(t==="v")g1.s+=3;else g1.m+=1;c.textContent="";c.dataset.t="";hud1();if(g1.m>=5)end1(false)}});
+function spawn(){var e=cells.filter(function(c){return !c.dataset.t});if(!e.length)return;var c=e[Math.floor(Math.random()*e.length)],r=Math.random(),t=r<.18?"x":r<.38?"v":"p";c.dataset.t=t;c.textContent=t==="x"?"\ud83d\udca5":t==="v"?"\ud83d\udd25":"\ud83d\udce3";setTimeout(function(){if(g1.on&&c.dataset.t===t){c.textContent="";c.dataset.t="";if(t!=="x"){g1.m+=1;hud1();if(g1.m>=5)end1(false)}}},1300)}
+$("g1btn").onclick=function(){if(g1.on)return;g1={on:true,s:0,m:0,t:30,iv:null,tm:null};$("g1msg").textContent="";$("g1btn").textContent="Running...";hud1();g1.iv=setInterval(spawn,700);g1.tm=setInterval(function(){g1.t-=1;hud1();if(g1.t<=0)end1(true)},1000)};
+/* Game 2 */
+var g2={on:false,x:0,sp:45,runs:0,l:3,best:0,last:0};
+function hud2(){$("g2hud").textContent="Runs: "+g2.runs+" \u00b7 Lives: "+"\u2764\ufe0f".repeat(Math.max(g2.l,0))}
+function lose(){g2.l-=1;g2.x=0;hud2();if(g2.l<=0){g2.on=false;if(g2.runs>g2.best)g2.best=g2.runs;$("g2msg").textContent="Out! Runs: "+g2.runs+" | Best: "+g2.best+". Press Start to bat again."}}
+function loop(t){if(!g2.on)return;var dt=(t-g2.last)/1000;g2.last=t;g2.x+=g2.sp*dt;if(g2.x>=100)lose();$("ball").style.left="calc("+Math.min(g2.x,100)+"% - "+(g2.x/100*28)+"px)";requestAnimationFrame(loop)}
+function hit(){if(!g2.on)return;if(g2.x>=68&&g2.x<=86){g2.runs+=1;g2.sp=Math.min(g2.sp+7,150);g2.x=0;hud2();$("g2msg").textContent="Cracking shot!"}else{$("g2msg").textContent="Mistimed!";lose()}}
+$("g2start").onclick=function(){if(g2.on)return;g2.on=true;g2.x=0;g2.sp=45;g2.runs=0;g2.l=3;$("g2msg").textContent="Watch the ball...";hud2();g2.last=performance.now();requestAnimationFrame(loop)};
+$("g2hit").onclick=hit;
+document.addEventListener("keydown",function(e){if(e.code==="Space"&&g2.on){e.preventDefault();hit()}});
+})();
+</script>
+</body>
+</html>
